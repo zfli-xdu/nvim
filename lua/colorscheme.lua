@@ -1,45 +1,39 @@
--- vim.cmd "colorscheme default"
-
--- -- codedark, gruvbox, or colemak
--- local colorscheme = "codedark"
---
--- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
--- if not status_ok then
---     vim.notify("colorscheme " .. colorscheme .. " not found!")
---     return
--- end
-
+local status_ok, vscode = pcall(require, "vscode")
+if not status_ok then
+  vim.notify "Colorscheme 'vscode' not found! Check whether it is installed."
+  return
+end
 
 -- Lua:
 -- For dark theme (neovim's default)
-vim.o.background = 'dark'
+vim.o.background = "dark"
 -- For light theme
 -- vim.o.background = 'light'
 
-local c = require('vscode.colors').get_colors()
-require('vscode').setup({
-    -- Alternatively set style in setup
-    -- style = 'light'
+local c = require("vscode.colors").get_colors()
+vscode.setup {
+  -- Alternatively set style in setup
+  -- style = 'light'
 
-    -- Enable transparent background
-    transparent = true,
+  -- Enable transparent background
+  transparent = true,
 
-    -- Enable italic comment
-    italic_comments = true,
+  -- Enable italic comment
+  italic_comments = true,
 
-    -- Disable nvim-tree background color
-    disable_nvimtree_bg = true,
+  -- Disable nvim-tree background color
+  disable_nvimtree_bg = true,
 
-    -- Override colors (see ./lua/vscode/colors.lua)
-    color_overrides = {
-        vscLineNumber = '#FFFFFF',
-    },
+  -- Override colors (see ./lua/vscode/colors.lua)
+  color_overrides = {
+    vscLineNumber = "#FFFFFF",
+  },
 
-    -- Override highlight groups (see ./lua/vscode/theme.lua)
-    group_overrides = {
-        -- this supports the same val table as vim.api.nvim_set_hl
-        -- use colors from this colorscheme by requiring vscode.colors!
-        Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
-    }
-})
-require('vscode').load()
+  -- Override highlight groups (see ./lua/vscode/theme.lua)
+  group_overrides = {
+    -- this supports the same val table as vim.api.nvim_set_hl
+    -- use colors from this colorscheme by requiring vscode.colors!
+    Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+  },
+}
+vscode.load()

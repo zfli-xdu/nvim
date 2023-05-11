@@ -40,7 +40,7 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 
@@ -76,5 +76,5 @@ keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 -- NvimTree --
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
--- Null-ls --
+-- Null-ls (formatting) --
 keymap("n", "<leader><S-f>", ":Format<cr>", opts)

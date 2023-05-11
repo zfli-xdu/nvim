@@ -3,7 +3,7 @@ if not cmp_status_ok then
   return
 end
 
-copilot.setup({
+copilot.setup {
   panel = {
     enabled = true,
     auto_refresh = false,
@@ -12,11 +12,11 @@ copilot.setup({
       jump_next = "]]",
       accept = "<CR>",
       refresh = "gr",
-      open = "<M-CR>"
+      open = "<M-CR>",
     },
     layout = {
       position = "bottom", -- | top | left | right
-      ratio = 0.4
+      ratio = 0.4,
     },
   },
   suggestion = {
@@ -43,6 +43,6 @@ copilot.setup({
     cvs = false,
     ["."] = false,
   },
-  copilot_node_command = 'node', -- Node.js version must be > 16.x
+  copilot_node_command = "node", -- Node.js version must be > 16.x
   server_opts_overrides = {},
-})
+}
